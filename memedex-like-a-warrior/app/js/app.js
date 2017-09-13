@@ -1,7 +1,7 @@
 var messaging;
 
 function isSameTokenSaved(token, window) {
-  if (localStorage in window) {
+  if (window.localStorage) {
     var tokenSaved = window.localStorage.getItem("token");
     window.localStorage.setItem("token", token);
     if (tokenSaved) {
@@ -20,11 +20,10 @@ function suscribeToken() {
       return messaging.getToken();
     })
     .then(function (token) {
-      /*if (isSameTokenSaved(token, window)) {
+      if (isSameTokenSaved(token, window)) {
         return true;
       }
-      return sendToken(token);*/
-      return true;
+      return sendToken(token);
     })
     .then(function () {
       console.log(":D");

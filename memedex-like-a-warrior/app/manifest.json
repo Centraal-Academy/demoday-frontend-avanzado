@@ -2,7 +2,7 @@
     "short_name": "Memedex",
     "name": "Memedex",
     "gcm_sender_id": "103953800507",
-    "start_url": "index.html",
+    "start_url": "/index.html",
     "icons": [
         {
             "src": "img/icon-72x72.png",

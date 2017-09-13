@@ -1,14 +1,14 @@
-var cacheName = 'memedex-sw-v1';
+var cacheName = 'memedex-sw-v9';
 
 var filesToCache = [
   '/',
   '/favicon.ico',
   '/manifest.json',
   '/index.html',
-  '/css/vendor.min.css',
   '/css/app.min.css',
   '/js/vendor.min.js',
   '/js/app.min.js',
+  '/img/pickle-rick.jpg',
   '/img/icon-72x72.png',
   '/img/icon-96x96.png',
   '/img/icon-128x128.png',
@@ -17,8 +17,9 @@ var filesToCache = [
   '/img/icon-192x192.png',
   '/img/icon-384x384.png',
   '/img/icon-512x512.png',
+  '/firebase-messaging-sw.js'
 ];
-/*
+
 self.addEventListener('install', function(e) {
   e.waitUntil(
     caches.open(cacheName).then(function(cache) {
@@ -31,7 +32,8 @@ self.addEventListener('activate', function(e) {
   e.waitUntil(
     caches.keys().then(function(keyList) {
       return Promise.all(keyList.map(function(key) {
-        if (key !== cacheName && key !== dataCacheName) {
+        console.log(key)
+        if (key !== cacheName) {
           return caches.delete(key);
         }
       }));
@@ -46,7 +48,6 @@ self.addEventListener('fetch', function(e) {
       })
     );
 });
-*/
 
 self.addEventListener('push', function(event) {
   var data = (event.data && (event.data.json()).data) || {};
