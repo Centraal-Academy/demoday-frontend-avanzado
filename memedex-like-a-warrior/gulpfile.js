@@ -85,6 +85,7 @@ gulp.task('copy-images', function() {
 gulp.task('copy-files', function() {
 	gulp.src([
 		'app/manifest.json',
+		'app/service-worker.js',
 		'app/firebase-messaging-sw.js'
 	])
 	.pipe(template(environment))
