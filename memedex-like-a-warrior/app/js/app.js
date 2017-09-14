@@ -26,7 +26,7 @@ function suscribeToken() {
       return sendToken(token);
     })
     .then(function () {
-      console.log(":D");
+        return navigator.serviceWorker.register('./service-worker.js');
     })
     .catch(function(err) {
       console.error('Ocurrio un error', err);
