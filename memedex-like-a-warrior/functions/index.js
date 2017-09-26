@@ -8,12 +8,12 @@ exports.suscribe = functions.https.onRequest((request, response) => {
 	cors(request, response, function () {
 		let token = request.body && request.body.token;
 		if (token) {
-			admin.messaging().subscribeToTopic([token], 'general')
+			admin.messaging().subscribeToTopic([token], 'gdljs')
 				.then(function () {
 					let notification = {
 						"data": {
 							"title" : "Bienvenido",
-							"body" : "Centraal Academy te recibe"
+							"body" : "Plática de Service workers en GDLJS <3"
 						}
 					};
 					return admin.messaging().sendToDevice([token], notification)
